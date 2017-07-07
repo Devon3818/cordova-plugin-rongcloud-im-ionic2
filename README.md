@@ -1,0 +1,1 @@
+# cordova-plugin-rongcloud-im-ionic2
