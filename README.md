@@ -1,40 +1,100 @@
-# cordova-plugin-rongcloud-im
+# cordova-plugin-rongcloud-im-ionic2
 
-This is a [Cordova](http://cordova.apache.org/) plugin for RongCloud IMLib.For more detailed information about underlying business processes  please refer to [Android Development Guide](http://www.rongcloud.cn/docs/cordova.html).
+cordova-plugin-rongcloud-im的ionic2 ionic-native封装
 
-# Install
 
-To add the plugin to your Cordova project, simply add the plugin from the npm registry:
+# Installation
 
-    cordova plugin add cordova-plugin-rongcloud-im
+Install the Cordova and Ionic Native plugins:
+
+    ionic cordova plugin add cordova-plugin-rongcloud-im
+    npm install --save @ionic-native/rongcloud
 
 Alternatively, you can install the latest version of the plugin directly from git:
 
-    cordova plugin add https://github.com/rongcloud/cordova-plugin-rongcloud-im
+    ionic cordova plugin add https://github.com/rongcloud/cordova-plugin-rongcloud-im
+    npm install --save @ionic-native/rongcloud
 
-# Usage
+# Supported platforms
+- Android
+- iOS
 
 The plugin is available via a global variable named `RongCloudLibPlugin`. It exposes the following properties and functions.
 
 All functions accept optional success and failure callbacks as their final two arguments, where the failure callback will receive an error string as an argument unless otherwise noted.
 
-## Demo
+# Usage
 
-[https://github.com/rongcloud/cordova-plugin-rongcloud-im-demo](https://github.com/rongcloud/cordova-plugin-rongcloud-im-demo)
+The dist directory will contain a sub directory @ionic-native with all the packages compiled in there. Copy the package(s) you created/modified to your app's node_modules under the @ionic-native directory. (e.g. cp -r dist/@ionic-native/plugin-name ../my-app/node_modules/@ionic-native/).
 
-## 概述
+将 dist/@ionic-native 的 rongcloud文件夹复制到 ionic2项目的 node_modules/@ionic-native/ 下
 
-融云 RongCloud 是国内首家专业的即时通讯云服务提供商，专注为互联网、移动互联网开发者提供即时通讯基础能力和云端服务。通过融云平台，开发者不必搭建服务端硬件环境，就可以将即时通讯、实时网络能力快速集成至应用中。
+```
+Add Plugins to Your App's Module
 
-`cordova-plugin-rongcloud-im` 封装了融云即时通讯能力库 `IMLib SDK` 的 API，对融云的相关接口做了一一对应的封装，功能详情可参考目录。
+After installing a plugin’s package, add it to your app’s NgModule.
 
-使用 `cordova-plugin-rongcloud-im` 模块之前，请先 [注册](https://developer.rongcloud.cn/signup) 融云的开发者帐号并申请创建 App，创建 App 后，可以在 [开发者后台](https://developer.rongcloud.cn) 获取 `App Key` 和 `App Secret` 用于开发。
 
-开发前请先认真阅读相关的 [融云开发文档和视频](http://docs.rongcloud.cn)。
+...
 
-** Cordova 平台相关开源代码： **
+import { RongCloudLibPlugin } from '@ionic-native/rongcloud';
 
-* 支持 Cordova 平台的融云 IMLib Plugin 源代码：<a target="_blank" href="https://github.com/rongcloud/cordova-plugin-rongcloud-im" role="button">RongCloud IMLib Plugin for Cordova</a>
-* 融云 Cordova 的 Demo 演示源码：<a target="_blank" href="https://github.com/rongcloud/cordova-plugin-rongcloud-im-demo" role="button">Demo of RongCloud IMLib Plugin for Cordova</a>
+...
+
+@NgModule({
+  ...
+
+  providers: [
+    ...
+    RongCloudLibPlugin
+    ...
+  ]
+  ...
+})
+export class AppModule { }
+
+```
+
+```
+import { RongCloudLibPlugin } from '@ionic-native/rongcloud';
+
+constructor(private rongcloud: RongCloudLibPlugin) { }
+
+init(){
+    this.rongcloud.init({appKey: "yourappKey"}).then((result)=>{
+      if (result.status == 'success'){
+        .....
+      }
+    });
+}
+
+connect(){
+    this.rongcloud.connect({
+      token: "yourtoken"
+    }).then((ret)=>{
+
+      alert( JSON.stringify(ret) );
+
+    });
+}
+
+getCurrentUserId(){
+    this.rongcloud.getCurrentUserId().then((ret)=>{
+		alert( JSON.stringify(ret) );
+	})
+}
+
+............
+
+...
+
+
+```
+
+** RongCloud IMLib Plugin for Cordova： **
+
+* cordova-plugin-rongcloud-im-ionic2只是将cordova-plugin-rongcloud-im封装到ionic2的@ionic-native，更多的 API
+可以查看 <a target="_blank" href="https://github.com/rongcloud/cordova-plugin-rongcloud-im" role="button">cordova-plugin-rongcloud-im</a>
+
 
 
