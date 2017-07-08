@@ -8,12 +8,10 @@ cordova-plugin-rongcloud-im的ionic2 ionic-native封装
 Install the Cordova and Ionic Native plugins:
 
     ionic cordova plugin add cordova-plugin-rongcloud-im
-    npm install --save @ionic-native/rongcloud
     
 Alternatively, you can install the latest version of the plugin directly from git:
 
     ionic cordova plugin add https://github.com/rongcloud/cordova-plugin-rongcloud-im
-    npm install --save @ionic-native/rongcloud
 
 # Supported platforms
 - Android
