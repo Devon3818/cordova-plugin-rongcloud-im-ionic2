@@ -8,8 +8,8 @@ cordova-plugin-rongcloud-im的ionic2 ionic-native封装
 Install the Cordova and Ionic Native plugins:
 
     ionic cordova plugin add cordova-plugin-rongcloud-im
-    npm install --save @ionic-native/rongcloud
-
+    npm install --save @ionic-native/rongcloud
+    
 Alternatively, you can install the latest version of the plugin directly from git:
 
     ionic cordova plugin add https://github.com/rongcloud/cordova-plugin-rongcloud-im
@@ -27,7 +27,7 @@ All functions accept optional success and failure callbacks as their final two a
 
 The dist directory will contain a sub directory @ionic-native with all the packages compiled in there. Copy the package(s) you created/modified to your app's node_modules under the @ionic-native directory. (e.g. cp -r dist/@ionic-native/plugin-name ../my-app/node_modules/@ionic-native/).
 
-将 dist/@ionic-native 的 rongcloud文件夹复制到 ionic2项目的 node_modules/@ionic-native/ 下
+⚠️⚠️ 将 dist/@ionic-native 的 rongcloud文件夹复制到 ionic2项目的 node_modules/@ionic-native/ 下
 
 ```
 Add Plugins to Your App's Module
@@ -93,8 +93,10 @@ getCurrentUserId(){
 
 ** RongCloud IMLib Plugin for Cordova： **
 
-* cordova-plugin-rongcloud-im-ionic2只是将cordova-plugin-rongcloud-im封装到ionic2的@ionic-native，更多的 API
+*⚠️⚠️  cordova-plugin-rongcloud-im-ionic2只是将cordova-plugin-rongcloud-im封装到ionic2的@ionic-native，更多的 API
 可以查看 <a target="_blank" href="https://github.com/rongcloud/cordova-plugin-rongcloud-im" role="button">cordova-plugin-rongcloud-im</a>
+，如有任何问题请到<a target="_blank" href="https://github.com/rongcloud/cordova-plugin-rongcloud-im" role="button">cordova-plugin-rongcloud-im</a>提交issues
+
 
 
 
